@@ -2,8 +2,8 @@ package com.example.ApiCliente.Controladores;
 
 import java.util.*;
 
-import com.example.ApiCliente.Modelos.ClienteModelo;
-import com.example.ApiCliente.Servicios.ClienteServicios;
+import com.example.ApiCliente.Modelos.VentaModelo;
+import com.example.ApiCliente.Servicios.VentaServicios;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
