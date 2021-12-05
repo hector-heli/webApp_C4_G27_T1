@@ -20,12 +20,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RestController
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
 @RequestMapping("/cliente")
-public class PoveedorControlador {
+
+public class ProveedorControlador {
     @Autowired
     ProveedorServicios serv;
 
     @PostMapping()
-    public ProveedorModelo guardarCliente(@RequestBody ProveedorModelo cliente) {
+    public ProveedorModelo guardarProveedor(@RequestBody ProveedorModelo proveedor) {
         return serv.guardarProveedor(proveedor);
     }
 
@@ -34,23 +35,23 @@ public class PoveedorControlador {
         return serv.consultaTodos();
     }
 
-    @DeleteMapping(path = "/{id}")
-    public boolean eliminarProveedor(@PathVariable("id") Long id){
-        return serv.eliminarProveedor(id);
+    @DeleteMapping(path = "/{codigoProveedor}")
+    public boolean eliminarProveedor(@PathVariable("codigoProveedor") Long codigoProveedor){
+        return serv.eliminarProveedor(codigoProveedor);
     }
 
-    @GetMapping(path = "/{id}")
-    public Optional<ProveedorModelo> consultaPorId(@PathVariable("id") Long id){
-        return serv.consultaProveedorId(id);
+    @GetMapping(path = "/{codigoProveedor}")
+    public Optional<ProveedorModelo> consultaPorId(@PathVariable("codigoProveedor") Long codigoProveedor){
+        return serv.consultaProveedorId(codigoProveedor);
     }
 
-    @GetMapping(path = "/buscar/{nombre}")
-    public ArrayList<ProveedorModelo> obtenerPorNombre(@PathVariable("nombre") String nombre){
-        return serv.obtenerProveedorPorNombre(nombre);
+    @GetMapping(path = "/buscar/{nombreProveedor}")
+    public ArrayList<ProveedorModelo> obtenerPorNombre(@PathVariable("nombreProveedor") String nombreProveedor){
+        return serv.obtenerProveedorPorNombre(nombreProveedor);
     }
 
-    @GetMapping(path = "/buscacorreo/{correo}")
-    public ProveedorModelo obtenerPorCorreo(@PathVariable("correo") String correo){
-        return serv.obtenerPorCorreo(correo);
+    @GetMapping(path = "/buscacorreo/{correoProveedor}")
+    public ProveedorModelo obtenerPorCorreo(@PathVariable("correoProveedor") String correoProveedor){
+        return serv.obtenerPorCorreo(correoProveedor);
     }
 }

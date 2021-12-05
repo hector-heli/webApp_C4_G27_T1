@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Repo extends MongoRepository <ProveedorModelo, Long> {
-    ArrayList<ProveedorModelo> findByNombre(String nombre);
+public interface ProveedorRepo extends MongoRepository <ProveedorModelo, Long> {
+    ArrayList<ProveedorModelo> findByNombre(String nombreProveedor); 
     ProveedorModelo findByCorreo(String correo);
 }

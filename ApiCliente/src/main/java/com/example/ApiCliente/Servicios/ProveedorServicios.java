@@ -14,7 +14,7 @@ public class ProveedorServicios {
     @Autowired
     ProveedorRepo repo;
 
-    public ProveedorModelo guardarProveedor(ProveedorModelo Proveedor) {
+    public ProveedorModelo guardarProveedor(ProveedorModelo proveedor) {
         return repo.save(proveedor);
     }
 
