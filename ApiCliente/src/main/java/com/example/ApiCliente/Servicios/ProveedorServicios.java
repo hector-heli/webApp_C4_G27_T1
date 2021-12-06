@@ -22,24 +22,24 @@ public class ProveedorServicios {
         return (ArrayList<ProveedorModelo>) repo.findAll();
     }
 
-    public boolean eliminarProveedor(Long id){
-        if(repo.existsById(id)){
-            repo.deleteById(id);
+    public boolean eliminarProveedor(Long codigoProveedor){
+        if(repo.existsById(codigoProveedor)){
+            repo.deleteById(codigoProveedor);
             return true;
         } else{
             return false;
         }
     }
 
-    public Optional<ProveedorModelo> consultaProveedorId(Long id){
-        return repo.findById(id);
+    public Optional<ProveedorModelo> consultaProveedorId(Long codigoProveedor){
+        return repo.findById(codigoProveedor);
     }
 
-    public ArrayList<ProveedorModelo> obtenerProveedorPorNombre(String nombre){
-        return repo.findByNombre(nombre);
+    public ArrayList<ProveedorModelo> obtenerProveedorPorNombre(String nombreProveedor){
+        return repo.findByNombreProveedor(nombreProveedor);
     }
 
-    public ProveedorModelo obtenerPorCorreo(String correo){
-        return repo.findByCorreo(correo);
+    public ProveedorModelo obtenerPorCorreo(String correoProveedor){
+        return repo.findByCorreoProveedor(correoProveedor);
     }
 }

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/cliente")
+@RequestMapping("/proveedor")
 
 public class ProveedorControlador {
     @Autowired

@@ -6,9 +6,8 @@ import org.springframework.data.annotation.Id;
 
 public class VentaModelo {
     @Id
-    private Long id;
 
-    private String codigoCliente;
+    private Long codigoCliente;
     private String codigoVendedor;
     private String codigoProducto;
     private Date fecha;
@@ -16,18 +15,12 @@ public class VentaModelo {
     private int  cantidad;
     private float ventaNeta;
     private float costo;
-    private long pedido;
+    private Long pedido;
     
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getCodigoCliente() {
+    public long getCodigoCliente() {
         return codigoCliente;
     }
-    public void setCodigoCliente(String codigoCliente) {
+    public void setCodigoCliente(long codigoCliente) {
         this.codigoCliente = codigoCliente;
     }
     public String getCodigoVendedor() {

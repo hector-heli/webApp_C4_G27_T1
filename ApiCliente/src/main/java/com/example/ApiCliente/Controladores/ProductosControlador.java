@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/cliente")
+@RequestMapping("/producto")
 
 public class ProductosControlador {
     @Autowired
@@ -48,10 +48,5 @@ public class ProductosControlador {
     @GetMapping(path = "/buscar/{nombreProducto}")
     public ArrayList<ProductosModelo> obtenerPorNombre(@PathVariable("nombreProducto") String nombreProducto){
         return serv.obtenerProductoPorNombre(nombreProducto);
-    }
-
-    @GetMapping(path = "/buscacorreo/{correo}")
-    public ProductosModelo obtenerPorCorreo(@PathVariable("correo") String correo){
-        return serv.obtenerPorCorreo(correo);
     }
 }

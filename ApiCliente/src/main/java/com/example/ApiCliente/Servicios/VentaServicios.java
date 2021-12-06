@@ -22,24 +22,24 @@ public class VentaServicios {
         return (ArrayList<VentaModelo>) repo.findAll();
     }
 
-    public boolean eliminarVenta(Long id){
-        if(repo.existsById(id)){
-            repo.deleteById(id);
+    public boolean eliminarVenta(Long codigoCliente){
+        if(repo.existsById(codigoCliente)){
+            repo.deleteById(codigoCliente);
             return true;
         } else{
             return false;
         }
     }
 
-    public Optional<VentaModelo> consultaVentaId(Long id){
-        return repo.findById(id);
+    public Optional<VentaModelo> consultaVentaId(Long codigoCliente){
+        return repo.findById(codigoCliente);
     }
 
-    public ArrayList<VentaModelo> obtenerVentaPorNombre(String nombre){
-        return repo.findByNombre(nombre);
+    public ArrayList<VentaModelo> obtenerVentaPorCodigoVendedor(String codigoVendedor){
+        return repo.findByCodigoVendedor(codigoVendedor);
     }
 
-    public VentaModelo obtenerPorCorreo(String correo){
-        return repo.findByCorreo(correo);
+    public VentaModelo obtenerPorCodigoProducto(String codigoProducto){
+        return repo.findByCodigoProducto(codigoProducto);
     }
 }

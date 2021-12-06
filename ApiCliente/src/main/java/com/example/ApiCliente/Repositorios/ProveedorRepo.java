@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProveedorRepo extends MongoRepository <ProveedorModelo, Long> {
-    ArrayList<ProveedorModelo> findByNombre(String nombreProveedor); 
-    ProveedorModelo findByCorreo(String correo);
+    ArrayList<ProveedorModelo> findByNombreProveedor(String nombreProveedor); 
+    ProveedorModelo findByCorreoProveedor(String correoProveedor); 
 }

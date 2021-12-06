@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/cliente")
+@RequestMapping("/venta")
 public class VentaControlador {
     @Autowired
     VentaServicios serv;
@@ -34,23 +34,23 @@ public class VentaControlador {
         return serv.consultaTodos();
     }
 
-    @DeleteMapping(path = "/{id}")
-    public boolean eliminarVenta(@PathVariable("id") Long id){
-        return serv.eliminarVenta(id);
+    @DeleteMapping(path = "/{codigoCliente}")
+    public boolean eliminarVenta(@PathVariable("codigoCliente") Long codigoCliente){
+        return serv.eliminarVenta(codigoCliente);
     }
 
-    @GetMapping(path = "/{id}")
-    public Optional<VentaModelo> consultaPorId(@PathVariable("id") Long id){
-        return serv.consultaVentaId(id);
+    @GetMapping(path = "/{codigoCliente}")
+    public Optional<VentaModelo> consultaPorId(@PathVariable("codigoCliente") Long codigoCliente){
+        return serv.consultaVentaId(codigoCliente);
     }
 
-    @GetMapping(path = "/buscar/{nombre}")
-    public ArrayList<VentaModelo> obtenerPorNombre(@PathVariable("nombre") String nombre){
-        return serv.obtenerVentaPorNombre(nombre);
+    @GetMapping(path = "/buscar/{codigoVendedor}")
+    public ArrayList<VentaModelo> obtenerVentaPorCodigoVendedor(@PathVariable("codigoVendedor") String codigoVendedor){
+        return serv.obtenerVentaPorCodigoVendedor(codigoVendedor);
     }
 
-    @GetMapping(path = "/buscacorreo/{correo}")
-    public VentaModelo obtenerPorCorreo(@PathVariable("correo") String correo){
-        return serv.obtenerPorCorreo(correo);
+    @GetMapping(path = "/buscar/{codigoProducto}")
+    public VentaModelo obtenerPorCodigoProducto(@PathVariable("codigoProducto") String codigoProducto){
+        return serv.obtenerPorCodigoProducto(codigoProducto);
     }
 }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductosRepo extends MongoRepository <ProductosModelo, Long> {
-    ArrayList<ProductosModelo> findByNombre(String nombreProducto);
-    ProductosModelo findByCorreo(String correo);
+    ArrayList<ProductosModelo> findByNombreProducto(String nombreProducto);
+    ProductosModelo findByUnidadMedida(String unidadMedida);
 
     
 }

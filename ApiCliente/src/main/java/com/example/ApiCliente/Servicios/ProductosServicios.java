@@ -36,10 +36,10 @@ public class ProductosServicios {
     }
 
     public ArrayList<ProductosModelo> obtenerProductoPorNombre(String nombreProducto){
-        return repo.findByNombre(nombreProducto);
+        return repo.findByNombreProducto(nombreProducto);
     }
 
-    public ProductosModelo obtenerPorCorreo(String correo){
-        return repo.findByCorreo(correo);
+    public ProductosModelo obtenerPorUnidadMedida(String unidadMedida){
+        return repo.findByUnidadMedida(unidadMedida);
     }
 }
