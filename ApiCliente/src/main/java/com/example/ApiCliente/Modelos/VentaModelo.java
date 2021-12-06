@@ -5,23 +5,40 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 
 public class VentaModelo {
-    @Id
 
-    private Long codigoCliente;
+    @Id
+    private long factura;
+    private long codigoCliente;
+    private int  cantidad;
+    private float ventaNeta;
     private String codigoVendedor;
     private String codigoProducto;
     private Date fecha;
-    private String factura;
-    private int  cantidad;
-    private float ventaNeta;
-    private float costo;
-    private Long pedido;
+
     
+    public long getFactura() {
+        return factura;
+    }
+    public void setFactura(long factura) {
+        this.factura = factura;
+    }
     public long getCodigoCliente() {
         return codigoCliente;
     }
     public void setCodigoCliente(long codigoCliente) {
         this.codigoCliente = codigoCliente;
+    }
+    public int getCantidad() {
+        return cantidad;
+    }
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    public float getVentaNeta() {
+        return ventaNeta;
+    }
+    public void setVentaNeta(float ventaNeta) {
+        this.ventaNeta = ventaNeta;
     }
     public String getCodigoVendedor() {
         return codigoVendedor;
@@ -41,36 +58,6 @@ public class VentaModelo {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public String getFactura() {
-        return factura;
-    }
-    public void setFactura(String factura) {
-        this.factura = factura;
-    }
-    public int getCantidad() {
-        return cantidad;
-    }
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-    public float getVentaNeta() {
-        return ventaNeta;
-    }
-    public void setVentaNeta(float ventaNeta) {
-        this.ventaNeta = ventaNeta;
-    }
-    public float getCosto() {
-        return costo;
-    }
-    public void setCosto(float costo) {
-        this.costo = costo;
-    }
-    public long getPedido() {
-        return pedido;
-    }
-    public void setPedido(long pedido) {
-        this.pedido = pedido;
-    }
-
-
+    
+    
 }

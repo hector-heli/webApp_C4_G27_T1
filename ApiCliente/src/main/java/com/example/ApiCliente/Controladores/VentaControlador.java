@@ -39,9 +39,9 @@ public class VentaControlador {
         return serv.eliminarVenta(codigoCliente);
     }
 
-    @GetMapping(path = "/{codigoCliente}")
-    public Optional<VentaModelo> consultaPorId(@PathVariable("codigoCliente") Long codigoCliente){
-        return serv.consultaVentaId(codigoCliente);
+    @GetMapping(path = "/{factura}")
+    public Optional<VentaModelo> consultaPorId(@PathVariable("factura") Long factura){
+        return serv.consultaVentaId(factura);
     }
 
     @GetMapping(path = "/buscar/{codigoVendedor}")

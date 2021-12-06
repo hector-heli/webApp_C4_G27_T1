@@ -31,8 +31,8 @@ public class VentaServicios {
         }
     }
 
-    public Optional<VentaModelo> consultaVentaId(Long codigoCliente){
-        return repo.findById(codigoCliente);
+    public Optional<VentaModelo> consultaVentaId(long factura){
+        return repo.findById(factura);
     }
 
     public ArrayList<VentaModelo> obtenerVentaPorCodigoVendedor(String codigoVendedor){
