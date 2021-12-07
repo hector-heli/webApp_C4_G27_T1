@@ -31,7 +31,7 @@ public class VentaServicios {
         }
     }
 
-    public Optional<VentaModelo> consultaVentaId(long factura){
+    public Optional<VentaModelo> consultaVentaId(Long factura){
         return repo.findById(factura);
     }
 

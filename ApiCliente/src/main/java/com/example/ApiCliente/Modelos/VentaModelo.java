@@ -1,25 +1,24 @@
 package com.example.ApiCliente.Modelos;
 
-import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
 public class VentaModelo {
 
     @Id
-    private long factura;
+    private Long factura;
     private long codigoCliente;
     private int  cantidad;
     private float ventaNeta;
     private String codigoVendedor;
     private String codigoProducto;
-    private Date fecha;
+    private String fecha;
 
     
-    public long getFactura() {
+    public Long getFactura() {
         return factura;
     }
-    public void setFactura(long factura) {
+    public void setFactura(Long factura) {
         this.factura = factura;
     }
     public long getCodigoCliente() {
@@ -52,10 +51,10 @@ public class VentaModelo {
     public void setCodigoProducto(String codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
     

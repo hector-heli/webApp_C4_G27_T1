@@ -34,9 +34,9 @@ public class VentaControlador {
         return serv.consultaTodos();
     }
 
-    @DeleteMapping(path = "/{codigoCliente}")
-    public boolean eliminarVenta(@PathVariable("codigoCliente") Long codigoCliente){
-        return serv.eliminarVenta(codigoCliente);
+    @DeleteMapping(path = "/{factura}")
+    public boolean eliminarVenta(@PathVariable("factura") Long factura){
+        return serv.eliminarVenta(factura);
     }
 
     @GetMapping(path = "/{factura}")
