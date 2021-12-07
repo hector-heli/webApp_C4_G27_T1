@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VentaRepo extends MongoRepository <VentaModelo, Long> {
-    ArrayList<VentaModelo> findByCodigoVendedor(String codigoVendedor);
-    VentaModelo findByCodigoProducto(String codigoProducto);
+    ArrayList<VentaModelo> findByCodigoVendedor(long codigoVendedor);
+    VentaModelo findByCodigoProducto(long codigoProducto);
 }

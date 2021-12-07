@@ -35,22 +35,22 @@ public class VentaControlador {
     }
 
     @DeleteMapping(path = "/{factura}")
-    public boolean eliminarVenta(@PathVariable("factura") Long factura){
+    public boolean eliminarVenta(@PathVariable("factura") long factura){
         return serv.eliminarVenta(factura);
     }
 
     @GetMapping(path = "/{factura}")
-    public Optional<VentaModelo> consultaPorId(@PathVariable("factura") Long factura){
+    public Optional<VentaModelo> consultaPorId(@PathVariable("factura") long factura){
         return serv.consultaVentaId(factura);
     }
 
-    @GetMapping(path = "/buscar/{codigoVendedor}")
-    public ArrayList<VentaModelo> obtenerVentaPorCodigoVendedor(@PathVariable("codigoVendedor") String codigoVendedor){
-        return serv.obtenerVentaPorCodigoVendedor(codigoVendedor);
-    }
+    //@GetMapping(path = "/buscar/{codigoVendedor}")
+    //public ArrayList<VentaModelo> obtenerVentaPorCodigoVendedor(@PathVariable("codigoVendedor") long codigoVendedor){
+    //    return serv.obtenerVentaPorCodigoVendedor(codigoVendedor);
+    //}
 
-    @GetMapping(path = "/buscar/{codigoProducto}")
-    public VentaModelo obtenerPorCodigoProducto(@PathVariable("codigoProducto") String codigoProducto){
-        return serv.obtenerPorCodigoProducto(codigoProducto);
-    }
+    //@GetMapping(path = "/buscaCodigoProducto/{codigoProducto}")
+    //public VentaModelo obtenerPorCodigoProducto(@PathVariable("codigoProducto") long codigoProducto){
+    //    return serv.obtenerPorCodigoProducto(codigoProducto);
+    //}
 }

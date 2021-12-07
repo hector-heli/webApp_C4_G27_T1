@@ -6,17 +6,17 @@ import org.springframework.data.annotation.Id;
 public class VentaModelo {
 
     @Id
-    private Long factura;
-    private String codigoVendedor;
-    private String codigoProducto;
+    private long factura;
+    private long codigoVendedor;
+    private long codigoProducto;
     private long codigoCliente;
     private int  cantidad;
     private float ventaNeta;
     
-    public Long getFactura() {
+    public long getFactura() {
         return factura;
     }
-    public void setFactura(Long factura) {
+    public void setFactura(long factura) {
         this.factura = factura;
     }
     public long getCodigoCliente() {
@@ -37,16 +37,16 @@ public class VentaModelo {
     public void setVentaNeta(float ventaNeta) {
         this.ventaNeta = ventaNeta;
     }
-    public String getCodigoVendedor() {
+    public long getCodigoVendedor() {
         return codigoVendedor;
     }
-    public void setCodigoVendedor(String codigoVendedor) {
+    public void setCodigoVendedor(long codigoVendedor) {
         this.codigoVendedor = codigoVendedor;
     }
-    public String getCodigoProducto() {
+    public long getCodigoProducto() {
         return codigoProducto;
     }
-    public void setCodigoProducto(String codigoProducto) {
+    public void setCodigoProducto(long codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
 }
