@@ -7,13 +7,11 @@ public class VentaModelo {
 
     @Id
     private Long factura;
+    private String codigoVendedor;
+    private String codigoProducto;
     private long codigoCliente;
     private int  cantidad;
     private float ventaNeta;
-    private String codigoVendedor;
-    private String codigoProducto;
-    private String fecha;
-
     
     public Long getFactura() {
         return factura;
@@ -51,12 +49,4 @@ public class VentaModelo {
     public void setCodigoProducto(String codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
-    public String getFecha() {
-        return fecha;
-    }
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-    
-    
 }
