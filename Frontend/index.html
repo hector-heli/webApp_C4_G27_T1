@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Comercial Team C4_G27_1</title>
+    <title>Gestión Comercial Team 1 C4_G27</title>
 </head>
 <body>
-    
+    <h1>Gestión Comercial Team 1 C4_G27</h1>
+    <div id="app">
+        <ul>
+            <li v-on:click="menu=1">Guardar Clientes</li>
+            <li v-on:click="menu=2">Consultar todos los clientes</li>
+            <li v-on:click="menu=3">Consultar clientes por cedula</li>
+            <li v-on:click="menu=4">Eliminar Clientes</li>
+            <li v-on:click="menu=5">Buscar Clientes</li>
+        </ul>
+        <registroCliente v-if="menu==1"></registroCliente>
+        <VerTodosCliente v-if="menu==2"></VerTodosCliente>
+        <buscarClientePorId v-if="menu==3"></buscarClientePorId>
+        <buscarClientePorNombre v-if="menu==4"></buscarClientePorNombre>
+        <eliminarCliente v-if="menu==5"></eliminarCliente>
+    </div>
 </body>
+
+<script src="/jsFrontend/vue.js"></script>
+<script src="/jsFrontend/sweetalert2.all.min.js"></script>
+<script src="/jsFrontend/app.js"></script>
 </html>
