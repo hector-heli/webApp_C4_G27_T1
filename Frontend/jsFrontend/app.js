@@ -5,7 +5,7 @@ Vue.component('registroCliente',{
             nombre:"",
             apellido:"",
             telefono:"",
-            correo:"",
+            correo:""
         }
     },
     template:`<div>
@@ -43,7 +43,7 @@ Vue.component('registroCliente',{
     }
 })
 
-Vue.component('VerTodosCliente',{
+Vue.component('verTodosCliente',{
     data(){
         return{
             datosConsulta:{},
