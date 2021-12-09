@@ -236,24 +236,23 @@
     .modal form label {
         font-weight: normal;
     }	
-    </style>
-
+</style>
 </head>
+
 <body>
     <h1>Gestión Comercial Team 1 C4_G27</h1>
     <div id="app">
         <ul>
-            <li v-on:click="menu=1">Guardar Clientes</li>
-            <li v-on:click="menu=2">Consultar todos los clientes</li>
-            <li v-on:click="menu=3">Consultar clientes por cedula</li>
-            <li v-on:click="menu=4">Eliminar Clientes</li>
-            <li v-on:click="menu=5">Buscar Clientes</li>
+            <li v-on:click="menu=1">Gestión de Clientes</li>
+            <li v-on:click="menu=2">Gestión de Artículos</li>
+            <li v-on:click="menu=3">Gestión de Ventas</li>
+            <li v-on:click="menu=4">Gestión de Proveedores</li><br>
         </ul>
-        <registroCliente v-if="menu==1"></registroCliente>
-        <verTodosCliente v-if="menu==2"></verTodosCliente>
+        <table-consulta v-if="menu==1"></table-consulta>
+        <!---verTodosCliente v-if="menu==2"></verTodosCliente>
         <buscarClientePorId v-if="menu==3"></buscarClientePorId>
         <buscarClientePorNombre v-if="menu==4"></buscarClientePorNombre>
-        <eliminarCliente v-if="menu==5"></eliminarCliente>
+        <eliminarCliente v-if="menu==5"></eliminarCliente-->
     </div>
 </body>
 
