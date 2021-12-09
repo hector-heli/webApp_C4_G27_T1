@@ -6,8 +6,9 @@ Vue.component('table-consulta',{
             apellido:"",
             telefono:"",
             correo:"",
-            datosFila:{},
+            datosFila:[],
             datosConsulta:{},
+            index:0,
         }
     },
     template:
@@ -56,8 +57,8 @@ Vue.component('table-consulta',{
                         <td>{{ cliente.telefono }}</td>
                         <td>{{ cliente.correo }}</td>
                         <td>
-                            <a href="#editClientModal" @click="actualizaCliente(index)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="#deleteClientModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#editClientModal" @click="actualizaFormCliente(index)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#deleteClientModal" @click="pre_eliminaCliente(index)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -125,28 +126,28 @@ Vue.component('table-consulta',{
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>Número de documento</label>
-                                    <input type="text" class="form-control" required value = "id">
+                                    <input type="text" class="form-control" required id="txtDocumento" disabled>
                                 </div>					
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" required id="txtNombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Apellido</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control" required id="txtApellido">
                                 </div>
                                 <div class="form-group">
                                     <label>Teléfono</label>
-                                    <input type="email" class="form-control" required>
+                                    <input type="text" class="form-control" required id="txtTelefono">
                                 </div>
                                 <div class="form-group">
                                     <label>Correo</label>
-                                    <textarea class="form-control" required></textarea>
+                                    <input type="email" class="form-control" required id="txtCorreo">
                                 </div>					
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-success" value="Add">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"/>
+                                <input type="submit" class="btn btn-success" value="Actualizar" @click="actualizaCliente">
                             </div>
                         </form>
                     </div>
@@ -159,16 +160,16 @@ Vue.component('table-consulta',{
                     <div class="modal-content">
                         <form>
                             <div class="modal-header">						
-                                <h4 class="modal-title">Delete Employee</h4>
+                                <h4 class="modal-title">Eliminar Cliente</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">					
-                                <p>Are you sure you want to delete these Records?</p>
-                                <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                <p>¿Está seguro de eliminar el cliente No {{this.id}}?</p>
+                                <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-danger" value="Delete">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                                <input type="submit" class="btn btn-danger" value="Eliminar" @click="eliminaCliente">
                             </div>
                         </form>
                     </div>
@@ -201,16 +202,45 @@ Vue.component('table-consulta',{
                     position: 'top-end',
                     icon: 'success',
                     title: 'El cliente se ha almacenado en la base de datos',
-                    showConfirmButton: false,
+                    showConfirmButton: true,
                     timer: 1500
                 });
-                this.consultarCliente();
+                this.consultarCliente();                
             })
         },
-        actualizaCliente(index) {
+        actualizaFormCliente(index) {
             this.datosFila=this.datosConsulta[index];
             console.log(this.datosFila);
-            
+            document.getElementById("txtDocumento").value = this.datosFila.id;
+            document.getElementById("txtNombre").value = this.datosFila.nombre;
+            document.getElementById("txtApellido").value = this.datosFila.apellido;
+            document.getElementById("txtTelefono").value = this.datosFila.telefono;
+            document.getElementById("txtCorreo").value = this.datosFila.correo;
+        },
+        actualizaCliente(){
+            this.id = document.getElementById("txtDocumento").value;
+            this.nombre = document.getElementById("txtNombre").value;
+            this.apellido = document.getElementById("txtApellido").value;
+            this.telefono = document.getElementById("txtTelefono").value;
+            this.correo = document.getElementById("txtCorreo").value;
+
+            this.guardaCliente();            
+        },
+        pre_eliminaCliente(index){
+            this.datosFila = this.datosConsulta[index];
+            console.log(this.datosFila.id);
+            this.id=this.datosFila.id;
+        },
+        eliminaCliente(){
+            const endpoint ="http://localhost:8080/cliente/"+ this.id;
+            const opciones = {method:"DELETE"};
+
+            fetch(endpoint,opciones).then (async (response) =>{
+                //alert("El Cliente fue eliminado");
+                this.id="";
+                this.consultarCliente();
+                ('.modal fade').modal('toggle'); 
+            })
         }
     }
 });
