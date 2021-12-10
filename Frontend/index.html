@@ -249,9 +249,9 @@
             <li v-on:click="menu=4">Gestión de Artículos</li><br>
         </ul>
         <table-cliente v-if="menu==1"></table-cliente>
-        <!--table-proveedor v-if="menu==2"></table-proveedor>
-        <table-ventas v-if="menu==3"></table-ventas>
-        <table-articulos v-if="menu==4"></table-articulos-->
+        <table-proveedor v-if="menu==2"></table-proveedor>
+        <table-venta v-if="menu==3"></table-venta>
+        <table-articulo v-if="menu==4"></table-articulo>
 
         <p>{{menu}}</p>
     </div>
