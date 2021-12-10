@@ -244,13 +244,13 @@
     <div id="app">
         <ul>
             <li v-on:click="menu=1">Gestión de Clientes</li>
-            <li v-on:click="menu=2">Gestión de Artículos</li>
+            <li v-on:click="menu=2">Gestión de Proveedores</li>
             <li v-on:click="menu=3">Gestión de Ventas</li>
-            <li v-on:click="menu=4">Gestión de Proveedores</li><br>
+            <li v-on:click="menu=4">Gestión de Artículos</li><br>
         </ul>
-        <table-consulta v-if="menu==1"></table-consulta>
-        <!---verTodosCliente v-if="menu==2"></verTodosCliente>
-        <buscarClientePorId v-if="menu==3"></buscarClientePorId>
+        <table-cliente v-if="menu==1"></table-cliente>
+        <table-proveedor v-if="menu==2"></table-proveedor>
+        <!--buscarClientePorId v-if="menu==3"></buscarClientePorId>
         <buscarClientePorNombre v-if="menu==4"></buscarClientePorNombre>
         <eliminarCliente v-if="menu==5"></eliminarCliente-->
         <p>{{menu}}</p>
@@ -261,3 +261,7 @@
 <script src="jsFrontend/sweetalert2.all.min.js"></script>
 <script src="jsFrontend/app.js"></script>
 </html>
+
+<!--hola Compañeros, Héctor Helí Ruiz les dá la bienvenida-->
+<!-- hola JAR-->
+<!--Wenas noches :3; att: Iván-->
